@@ -42,6 +42,7 @@ namespace Fire_and_Forget
             {
 
                 cts.Cancel();
+
             }
         }
     }
