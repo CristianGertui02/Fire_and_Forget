@@ -40,6 +40,7 @@ namespace Fire_and_Forget
         {
             if (cts!=null)
             {
+
                 cts.Cancel();
             }
         }
