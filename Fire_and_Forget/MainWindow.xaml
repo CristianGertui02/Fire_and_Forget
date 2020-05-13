@@ -17,6 +17,7 @@
         </Grid.Background>
         <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="159,108,0,0" VerticalAlignment="Top" Height="25" Width="79" Click="Start_Click"/>
         <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Left" Margin="159,189,0,0" VerticalAlignment="Top" Height="28" Width="79" Click="Stop_Click"/>
+        <Label x:Name="Lbl_ris" Content="" HorizontalAlignment="Left" Margin="277,140,0,0" VerticalAlignment="Top" Height="48" Width="123" BorderBrush="Black" Background="{x:Null}" UseLayoutRounding="False" FontSize="14" FontWeight="Bold"/>
 
     </Grid>
 </Window>

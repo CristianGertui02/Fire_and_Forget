@@ -31,9 +31,17 @@ namespace Fire_and_Forget
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             cts = new CancellationTokenSource();
-            Work wrk = new Work( 10, 1000, cts);
+            //Work wrk = new Work( 10, 1000, cts);
+            //wrk.start();
+            IProgress<int> progress = new Progress<int>(UpdateUI);
+            WorkerProgress wrk = new WorkerProgress(10,1000,cts,progress);
             wrk.start();
             MessageBox.Show("posso farti leggere questo messaggio mentre sto anche contando");
+        }
+
+        private void UpdateUI(int i)
+        {
+            Lbl_ris.Content = i.ToString();
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)
