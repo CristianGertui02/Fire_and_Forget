@@ -27,14 +27,17 @@ namespace Fire_and_Forget
             InitializeComponent();
         }
 
+        Semaphore sem = new Semaphore(1, 2);
         CancellationTokenSource cts;
         private async void Start_Click(object sender, RoutedEventArgs e)
         {
             cts = new CancellationTokenSource();
-            WorkerAsync wrk = new WorkerAsync(10, 1000, cts);
+            //WorkerAsync wrk = new WorkerAsync(10, 1000, cts);
+            IProgress<int> progress = new Progress<int>(UpdateUI);
+            WorkerProgressAsync wrk = new WorkerProgressAsync(sem, 11, 1000, cts, progress);
             await wrk.start();
 
-            //IProgress<int> progress = new Progress<int>(UpdateUI);
+            
             //WorkerProgress wrk = new WorkerProgress(10,1000,cts,progress);
             //wrk.start();
             MessageBox.Show("posso farti leggere questo messaggio mentre sto anche contando");
